@@ -1,5 +1,6 @@
 import 'package:f_commerce/utils/theme.dart';
 import 'package:f_commerce/view/auth_screen/auth_screen.dart';
+import 'package:f_commerce/view/auth_screen/otp_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Amazon Clone',
       theme: theme,
       debugShowCheckedModeBanner: false,
-      home:   AuthScreen(),
+      home:    OtpScreen(phoneNumber: '+201129045605'),
     );
   }
 }

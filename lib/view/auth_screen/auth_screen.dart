@@ -1,5 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:f_commerce/utils/colors.dart';
+import 'package:f_commerce/view/auth_screen/widgets/bottom_auth_widger.dart';
+import 'package:f_commerce/view/auth_screen/widgets/button_auth_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/common_functions.dart';
@@ -43,7 +45,6 @@ class _AuthScreenState extends State<AuthScreen> {
                 Text('Welcome',style: style.displaySmall!.copyWith(
                   fontWeight: FontWeight.w600
                 ),),
-
                 CommonFunctions.blankSpace(height*0.02, 0.0),
                 // section two 'login || sign up'
                 Builder(builder: (context) {
@@ -63,7 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
       ),
     );
   }
-  Container createAccountWidget(double width, double height, TextTheme style, BuildContext context) {
+  Widget createAccountWidget(double width, double height, TextTheme style, BuildContext context) {
     return Container(
       width: width,
       decoration: BoxDecoration(
@@ -273,16 +274,11 @@ Message and data rates may apply.''',style: style.bodySmall,),
                 )),
               ],
             ),),
-
-
-
         ],
       ),
     );
   }
-
-
-  Container signInWidget(double width, double height, TextTheme style, BuildContext context) {
+  Widget signInWidget(double width, double height, TextTheme style, BuildContext context) {
     return Container(
                 width: width,
                 decoration: BoxDecoration(
@@ -433,18 +429,7 @@ Message and data rates may apply.''',style: style.bodySmall,),
                           ),
                           CommonFunctions.blankSpace(height*0.02, 0.0),
                           // continue button
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: amber,
-                              // padding: const EdgeInsets.all(8.0),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6.0),
-                              ),
-                              minimumSize: Size(width*0.88,height * 0.058),
-                            ),
-                            onPressed: (){}, child: Text(
-                            'Continue',style: style.displaySmall,
-                          ),),
+                          ButtonAuthWidget(width: width, height: height, style: style),
                           CommonFunctions.blankSpace(height*0.02, 0.0),
                           // text
                           RichText(text:  TextSpan(
@@ -466,41 +451,3 @@ Message and data rates may apply.''',style: style.bodySmall,),
 
 
 
-
-class BottomAuthScreen extends StatelessWidget {
-  const BottomAuthScreen({
-    super.key,
-    required this.height,
-    required this.style,
-  });
-
-  final double height;
-  final TextTheme style;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // divider
-        Container(
-          height: 2,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [white,greyShade3,white])
-          ),
-        ),
-        CommonFunctions.blankSpace(height*0.02, 0.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-          Text('Condition of Use',style: style.bodySmall!.copyWith(color: blue),),
-          Text('Privacy Notice',style: style.bodySmall!.copyWith(color: blue),),
-          Text('Help',style: style.bodySmall!.copyWith(color: blue),),
-        ],),
-        CommonFunctions.blankSpace(height*0.01, 0.0),
-        Text('© 1996-2023, Amazon.com, Inc.or its affiliates',style: style.labelSmall!.copyWith(
-          color: grey
-        ),)
-      ],
-    );
-  }
-}
