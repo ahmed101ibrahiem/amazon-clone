@@ -1,9 +1,13 @@
 import 'package:f_commerce/utils/theme.dart';
-import 'package:f_commerce/view/auth_screen/auth_screen.dart';
 import 'package:f_commerce/view/auth_screen/otp_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+   // options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
